@@ -1,0 +1,10 @@
+closed_big.png filter=lfs diff=lfs merge=lfs -text
+deleted_small.png filter=lfs diff=lfs merge=lfs -text
+score_big.png filter=lfs diff=lfs merge=lfs -text
+score_small.png filter=lfs diff=lfs merge=lfs -text
+views_small.png filter=lfs diff=lfs merge=lfs -text
+answers_big.png filter=lfs diff=lfs merge=lfs -text
+answers_small.png filter=lfs diff=lfs merge=lfs -text
+closed_small.png filter=lfs diff=lfs merge=lfs -text
+deleted_big.png filter=lfs diff=lfs merge=lfs -text
+views_big.png filter=lfs diff=lfs merge=lfs -text
