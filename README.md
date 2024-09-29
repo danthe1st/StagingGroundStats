@@ -15,3 +15,4 @@ The horizontal lines represents the median.
 - ratio is the of approved questions with the attribute divided by the approval count i.e. the ratio of closed/deleted questions (or mean number of answers, I know the title doesn't fit here)
 - count is the total number of closed/deleted questions or answers to questions the reviewer has approved
 
+The data was collected using [this userscript](https://github.com/danthe1st/SO-Userscripts/?tab=readme-ov-file#approved-staging-ground-review-statistics)
