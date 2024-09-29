@@ -1,8 +1,11 @@
 import json
 import numpy as np
 from matplotlib import pyplot as plt
+import urllib.parse
 
-def op_plot(ax, user_arrays, op, name):
+SMALL_PLOT = True
+
+def op_plot(ax, user_arrays, op, name, format_spec="%.1f"):
     values = []
     lens = []
     xs = []
@@ -13,14 +16,19 @@ def op_plot(ax, user_arrays, op, name):
         user_url_split = user_url.split("/")
         user_name = user_url_split[-1]
         user_id = user_url_split[-2]
-        xs.append(user_name)
+        xs.append(urllib.parse.unquote(user_name[0:15]))
     colormap = plt.get_cmap("viridis")
     ax.bar(xs, values, color=colormap(lens))
-    ax.set_title(name)
+    if SMALL_PLOT:
+        ax.bar_label(ax.containers[0], fmt=format_spec)
+    median = np.median(values)
+    ax.set_title(f"{name}")
     ax.tick_params(axis='x', labelrotation=-90)
-    ax.axhline(np.median(values))
+    ax.axhline(median)
+    ax.text(ax.get_xlim()[1]+0.1, median, f"median: {median:.3}")
 
-if True:
+
+if SMALL_PLOT:
     FILE_SUFFIX="_small.png"
     MIN_QUESTIONS=20
 else:
@@ -32,8 +40,8 @@ def multiplot(user_arrays, name, include_mean_pos_neg=True, mean_pos_neg_name="m
     fig.set_size_inches(25, 15)
     fig.suptitle(name, fontsize=14)
     plt.subplots_adjust(hspace=2.5)
-    op_plot(ax[-1], user_arrays, len, "total number of approved questions")
-    op_plot(ax[-2], user_arrays, np.sum, "sum")
+    op_plot(ax[-1], user_arrays, len, "total number of approved questions", format_spec="%d")
+    op_plot(ax[-2], user_arrays, np.sum, "sum", format_spec="%d")
     op_plot(ax[0], user_arrays, np.mean, "mean")
     op_plot(ax[1], user_arrays, inter_quantile_mean, "inter quantile mean")
     if include_mean_pos_neg:
@@ -46,9 +54,9 @@ def boolplot(user_arrays, name):
     fig.set_size_inches(25, 15)
     fig.suptitle(name, fontsize=14)
     plt.subplots_adjust(hspace=2.5)
-    op_plot(ax[2], user_arrays, len, "total number of approved questions")
-    op_plot(ax[1], user_arrays, sum, "count")
-    op_plot(ax[0], user_arrays, lambda x: sum(x)/len(x), "ratio")
+    op_plot(ax[2], user_arrays, len, "total number of approved questions", format_spec="%d")
+    op_plot(ax[1], user_arrays, sum, "count", format_spec="%d")
+    op_plot(ax[0], user_arrays, lambda x: sum(x)/len(x), "ratio", format_spec="%0.2f")
     plt.savefig(f"{name}{FILE_SUFFIX}")
     plt.show()
 
