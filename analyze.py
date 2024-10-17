@@ -30,10 +30,10 @@ def op_plot(ax, user_arrays, op, name, format_spec="%.1f"):
 
 if SMALL_PLOT:
     FILE_SUFFIX="_small.png"
-    MIN_QUESTIONS=20
+    MIN_QUESTIONS=40
 else:
     FILE_SUFFIX="_big.png"
-    MIN_QUESTIONS=5
+    MIN_QUESTIONS=20
 
 def multiplot(user_arrays, name, include_mean_pos_neg=True, mean_pos_neg_name="mean [positive - negative]"):
     fig, ax = plt.subplots(4 + int(include_mean_pos_neg))
