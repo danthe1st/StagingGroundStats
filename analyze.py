@@ -3,7 +3,7 @@ import numpy as np
 from matplotlib import pyplot as plt
 import urllib.parse
 
-SMALL_PLOT = True
+SMALL_PLOT = False
 
 def op_plot(ax, user_arrays, op, name, format_spec="%.1f"):
     values = []
@@ -80,6 +80,8 @@ if __name__ == "__main__":
                     data["closed"]=0
                 if "deleted" not in data:
                     data["deleted"]=0
+                if "duplicate" not in data:
+                    data["duplicate"]=0
                 for k,v in data.items():
                     if k not in stats:
                         stats[k] = {}
@@ -90,4 +92,5 @@ if __name__ == "__main__":
     multiplot(stats["answers"], "answers", mean_pos_neg_name="ratio of questions with answers")
     multiplot(stats["views"], "views", include_mean_pos_neg=False)
     boolplot(stats["closed"], "closed")
+    boolplot(stats["duplicate"], "duplicate")
     boolplot(stats["deleted"], "deleted")
