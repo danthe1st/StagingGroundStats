@@ -2,6 +2,22 @@
 
 I took all Staging Ground approvals (state: 17.10.2024) from the review history (16806 posts in total), grouped these by user, filtered out inactive users and created bar charts out of it.
 
+General statistics collected from the script using these approvals:
+```none
+retrieval log from 17.10.2024
+
+posts checked: 16806
+average votes: 0.07533023920028561 (total: 1266)
+average answers: 0.37980483160775913 (total: 6383)
+average views: 66.40342734737594 (total: 1115976)
+average duplicate: 0.047840057122456266 (total: 804)
+average deleted: 0.17356896346542902 (total: 2917)
+average closed: 0.08241104367487802 (total: 1385)
+
+error: 36
+error request failure (no information about answers in post): 36
+```
+
 The ones with "big" in the name include all users who contributed more than 20 of these approvals, ones marked "small" only include users who contributed more than 40 of these approvals.
 
 The horizontal lines represents the median.
