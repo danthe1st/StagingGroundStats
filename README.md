@@ -4,8 +4,6 @@ I took all Staging Ground approvals (state: 17.10.2024) from the review history 
 
 General statistics collected from the script using these approvals:
 ```none
-retrieval log from 17.10.2024
-
 posts checked: 16806
 average votes: 0.07533023920028561 (total: 1266)
 average answers: 0.37980483160775913 (total: 6383)
